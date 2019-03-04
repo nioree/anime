@@ -24,7 +24,8 @@
 	var request = new XMLHttpRequest();
 	var username = "391006aac8d2a329";
 	var olkey = "Z1hV9_wI";
-	request.open('GET', 'https://api.openload.co/1/file/listfolder?login=391006aac8d2a329&key=Z1hV9_wI', true);
+	var aurl = "https://openload.co/embed/FvU4N63Nrvs/";
+	request.open('GET', 'https://api.openload.co/1/remotedl/add?login=391006aac8d2a329&key=Z1hV9_wI&url='+ aurl +'&folder=7161436', true);
 	request.onload = function () {
 
 	  // Begin accessing JSON data here
