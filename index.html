@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+  <title>Uploader</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ </head>
+ <body>
+  <script>
+   var url = "https://spreadsheets.google.com/feeds/list/1XBrYSXzessK_FwiIjrNdK0FMFlFX5HYYA9URKCT4Vnk/1/public/values?alt=json";
+   getData();
+   function getData() {
+   $.getJSON(url, function(data) {
+	var entry = data.feed.entry;
+	for (var i = 0; i < entry.length; i++) {
+	  var title = entry[i].gsx$title.$t;
+	  var link = entry[i].gsx$link.$t;
+	  var string = title + " - " + link;
+	  console.log(string);
+	}
+      });
+   }
+	var request = new XMLHttpRequest();
+	var username = "391006aac8d2a329";
+	var olkey = "Z1hV9_wI";
+	request.open('GET', 'https://api.openload.co/1/file/listfolder?login=391006aac8d2a329&key=Z1hV9_wI', true);
+	request.onload = function () {
+
+	  // Begin accessing JSON data here
+	  var data = JSON.parse(this.response);
+
+	  if (request.status >= 200 && request.status < 400) {
+	    //data.forEach(video => {
+	      console.log(data);
+	    //});
+	  } else {
+	    console.log('error');
+	  }
+	}
+
+	request.send();
+  </script>
+ </body>
+</html>
